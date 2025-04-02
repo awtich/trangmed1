@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Đăng nhập</h2>
+      <form action="#" method="POST" onsubmit="handleSubmit(event)">
+        <div class="input-group">
+          <label for="username">Tên đăng nhập</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Đăng nhập</button>
+      </form>
+      <p>Chưa có tài khoản? <a href="#">Đăng ký</a></p>
+    </div>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        let passwordField = document.getElementById("password");
+        if (passwordField.value !== "1234") {
+          // Giả sử mật khẩu đúng là "1234"
+          document.querySelector(".login-container").classList.add("shake");
+          setTimeout(() => {
+            document
+              .querySelector(".login-container")
+              .classList.remove("shake");
+          }, 500);
+        } else {
+          alert("Đăng nhập thành công!");
+        }
+      }
+    </script>
+  </body>
+</html>
